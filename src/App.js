@@ -1,4 +1,5 @@
 import './style.css'
+import {useState} from "react";
 
 const initialFacts = [
     {
@@ -34,6 +35,20 @@ const initialFacts = [
     },
 ];
 
+function Counter() {
+    const [count, setCount] = useState(0);
+
+    return <div>
+        <span style={{fontSize: '40px'}}>
+            {count}
+        </span>
+        <button className="btn btn-large" onClick={
+            () => setCount((prevCount) => prevCount + 1)}>
+            +1
+        </button>
+    </div>
+}
+
 function App() {
     const appTitle = "Today I Learned";
 
@@ -52,6 +67,7 @@ function App() {
                 <button className="btn btn-large btn-open">Share a fact</button>
             </header>
 
+            <Counter/>
             <NewFactForm/>
 
             <main className={"main"}>
